@@ -34,7 +34,7 @@ class Node:
 
         if delete !=0:
             self.deleteList.append(delete)
-        
+
         # Check if we want to remove the wall between corresponding cell and current cell
         for delet in self.deleteList:
             if delet == 1:
@@ -45,7 +45,7 @@ class Node:
                 leftColor = (255, 255, 255)
             if delet == 4:
                 rightColor = (255, 255, 255)
-        
+
         # Draw lines
         self.top = pygame.draw.line(WIN, topColor, (x1, y1), (x1+x2, y1))
         self.left = pygame.draw.line(WIN, leftColor, (x1, y1), (x1, y1+y2))
@@ -91,7 +91,7 @@ def getNeighbours(nodeList, currCell):
     # Get index of the current cell
     index = getIndex(nodeList, currCell)
     y, x = index
-    
+
     # Get neighbours of current cell if neighbour cell is not visited
 
     if y + 1 < len(nodeList):
@@ -108,25 +108,25 @@ def getNeighbours(nodeList, currCell):
         cell = nodeList[y][x+1]
         if not cell.visited:
             neighbours["right"] = cell
-    
+
     if x - 1 >= 0:
         cell = nodeList[y][x-1]
         if not cell.visited:
             neighbours["left"] = cell
 
-    
+
     return neighbours
 
 
 def getIndex(nodeList, currCell):
-    # Get the coordinates as (y, x) of current cell 
+    # Get the coordinates as (y, x) of current cell
     temp = (0,0)
     for i in range(len(nodeList)):
         for j in range(len(nodeList[i])):
             if nodeList[i][j] == currCell:
                 temp = (i, j)
                 break
-            
+
     return temp
 
 
@@ -154,7 +154,7 @@ def generateMaze(nodeList, currCell, prog):
             k = random.choice(list(neighbours.keys()))
             v = neighbours[k]
 
-            # Remove appropriate wall between current cell and neighbour cell 
+            # Remove appropriate wall between current cell and neighbour cell
 
             if k == "right":
                 currCell.draw(delete=4)
@@ -185,7 +185,7 @@ def generateMaze(nodeList, currCell, prog):
 def main():
     run = True
     WIN.blit(BG, (0,0))
-    
+
     nodeCount = 15
     nodeList = createNodes(nodeCount)
     drawNodes(nodeList)
