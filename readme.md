@@ -1,7 +1,7 @@
 # __Maze Generator__
 
 ## *Method*
-### Recursive backtracker w/ stack
+### Recursive backtrack w/ stack
 
 
 ## *Screenshots*
