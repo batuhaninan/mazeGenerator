@@ -3,6 +3,8 @@ import pygame, random
 from node import Node
 from constants import WIDTH, HEIGHT, WH, WIN, BG
 
+import time
+
 pygame.display.set_caption("Maze")
 
 
@@ -147,7 +149,7 @@ def main():
     nodeList = createNodes(nodeCount)
     drawNodes(nodeList)
     pygame.display.update()
-    generateMaze(nodeList, nodeList[0][0], prog=False)
+    generateMaze(nodeList, nodeList[0][0], prog=True)
     print("finished")
 
     while run:
